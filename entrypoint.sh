@@ -52,7 +52,7 @@ fi
 
 echo "docker build $BUILD_PARAMS $TARGET_ARG -t $TEMP_IMAGE_NAME $INPUT_CONTEXT $FILE_ARG"
 
-if docker build $TARGET_ARG -t $TEMP_IMAGE_NAME $INPUT_CONTEXT $FILE_ARG; then
+if DOCKER_BUILDKIT=1 docker build $TARGET_ARG -t $TEMP_IMAGE_NAME $INPUT_CONTEXT $FILE_ARG; then
     echo "Image built ..."
 else
     echo "Image building failed. Exiting ..."
